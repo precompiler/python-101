@@ -8,14 +8,14 @@ print(a * b)
 print(2 ** 3)
 print(2 ** 1024)
 
-#flooring result
+# flooring result
 print(7 // 4)
 
 print(int(True))
 print(int(False))
 print(bool(1))
 print(bool(0))
-#non-zero is true
+# non-zero is true
 print(bool(-20))
 print(bool(20))
 
