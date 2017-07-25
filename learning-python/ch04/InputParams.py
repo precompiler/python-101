@@ -46,3 +46,13 @@ tup = (1, 3, 5, 7)
 unpacking(tup)
 unpacking(*tup)
 
+def connect(**options):
+    print(options)
+
+o = {"url": "url", "user": "scott", "password": "123456"}
+connect(**o)
+
+def functriple(url, user, password):
+    print(url, user, password)
+
+functriple(**o)
