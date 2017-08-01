@@ -56,3 +56,4 @@ def functriple(url, user, password):
     print(url, user, password)
 
 functriple(**o)
+
