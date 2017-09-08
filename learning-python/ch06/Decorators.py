@@ -24,4 +24,26 @@ foo = timer1(foo)
 foo(1)
 ########################################
 
+def logger(func):
+    def wrapper(*args, **kwargs):
+        print("start ", func.__name__)
+        func()
+        print("end ", func.__name__)
+    return wrapper
+
+def logTime(func):
+    def wrapper(*args, **kwargs):
+        begin = time()
+        func()
+        print(func.__name__, " costs ", time() - begin)
+    return wrapper
+
+@logger
+@logTime
+def triggerEmail():
+    print("Sending email...")
+
+triggerEmail()
+
+
 
