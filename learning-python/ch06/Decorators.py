@@ -26,7 +26,7 @@ foo(1)
 
 def logger(func):
     def wrapper(*args, **kwargs):
-        print("start ", func.__name__)
+        print("start ", func.__name__) #function info is lost, since func now is wrapper
         func()
         print("end ", func.__name__)
     return wrapper
@@ -45,5 +45,29 @@ def triggerEmail():
 
 triggerEmail()
 
+########################################
+from functools import wraps
+def smart_logger(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print("start ", func.__name__) #function info is kept now
+        func()
+        print("end ", func.__name__)
+    return wrapper
+
+def smart_logTime(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        begin = time()
+        func()
+        print(func.__name__, " costs ", time() - begin)
+    return wrapper
+
+@smart_logger
+@smart_logTime
+def smart_triggerEmail():
+    print("Sending email...")
+
+smart_triggerEmail()
 
 
