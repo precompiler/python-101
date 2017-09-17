@@ -70,4 +70,22 @@ def smart_triggerEmail():
 
 smart_triggerEmail()
 
+######################################
+#Decorator factory
+def max_result(threshold):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            result = func(*args, **kwargs)
+            if (result > threshold):
+                print("Result is too big {0}, max allowed is {1}".format(result, threshold))
+            return result
+        return wrapper
+    return decorator
+
+@max_result(10)
+def cube(n):
+    return n ** 3
+
+print(cube(10))
 
