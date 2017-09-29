@@ -38,3 +38,40 @@ print(Circle.area(c2))
 
 del Circle.r
 print(c1.area())
+
+class Rectangle():
+    width = 0
+    length = 0
+    def __init__(self, width, length):
+        self.width = width
+        self.length = length
+    def area(self):
+        return self.width * self.length
+
+r = Rectangle(10, 20)
+print(r.area())
+
+class VideoCard():
+    brand = "Unknown"
+    def start(self):
+        print("Initialize video card ", self.brand)
+
+class Gtx1080(VideoCard):
+    brand = "Gtx1080"
+
+class Gtx1050(VideoCard):
+    brand = "Gtx1050"
+
+class Laptop():
+    video_card = VideoCard
+    def start(self):
+        self.video_card.start()
+
+class AW17(Laptop):
+    video_card = Gtx1080()
+
+class AW15(Laptop):
+    video_card = Gtx1050()
+
+AW17().start()
+AW15().start()
