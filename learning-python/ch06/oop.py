@@ -75,3 +75,25 @@ class AW15(Laptop):
 
 AW17().start()
 AW15().start()
+
+class Book:
+    def __init__(self, title, publisher, pages):
+        self.title = title
+        self.publisher = publisher
+        self.pages = pages
+
+class EBook(Book):
+    def __init__(self, title, publisher, pages, format):
+        Book.__init__(self, title, publisher, pages)
+        self.format = format
+
+book = EBook("Demo Book", "Null", 200, "PDF")
+print(book.title, book.publisher, book.pages, book.format)
+
+
+class System:
+    @staticmethod
+    def println(str):
+        print(str + "\n")
+
+System.println("Hello world")
