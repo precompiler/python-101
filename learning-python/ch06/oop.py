@@ -97,3 +97,59 @@ class System:
         print(str + "\n")
 
 System.println("Hello world")
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    @classmethod
+    def from_tuple(cls, coords):
+        return cls(*coords)
+    @classmethod
+    def from_point(cls, pt):
+        return cls(pt.x, pt.y)
+
+point1 = Point(1, 2)
+point2 = Point.from_tuple((3, 4))
+point3 = Point.from_point(point1)
+
+
+class A:
+    def __init__(self, factor):
+        self._factor = factor
+
+    def op1(self):
+        print('Op1 with factor {}...'.format(self._factor))
+
+class B(A):
+    def op2(self, factor):
+        self._factor = factor
+        print('Op2 with factor {}...'.format(self._factor))
+
+
+obj = B(100)
+obj.op1()    # Op1 with factor 100...
+obj.op2(42)  # Op2 with factor 42...
+obj.op1()    # Op1 with factor 42...
+print(obj.__dict__.keys())
+
+class A1:
+    def __init__(self, factor):
+        self.__factor = factor
+
+    def op1(self):
+        print('Op1 with factor {}...'.format(self.__factor))
+
+class B1(A1):
+    def op2(self, factor):
+        self.__factor = factor
+        print('Op2 with factor {}...'.format(self.__factor))
+
+
+obj = B1(100)
+obj.op1()    # Op1 with factor 100...
+obj.op2(42)  # Op2 with factor 42...
+obj.op1()    # Op1 with factor 42...
+print(obj.__dict__.keys())
+
+
