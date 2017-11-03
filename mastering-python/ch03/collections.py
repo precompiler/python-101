@@ -32,3 +32,29 @@ for key in d.keys():
 #tuple
 t = ("a", 1, "c")
 print(t[2])
+
+#counter
+import collections
+str = "Hello World"
+counter = collections.Counter(str)
+print("--------------")
+print("|char |count |")
+print("--------------")
+for c in str:
+    print("|%s   |%d    |" %(c, counter[c]))
+print("--------------")
+
+import math
+cache = collections.Counter()
+for i in range(0, 1000000):
+    cache[math.sqrt(i) // 25] += 1
+
+for key, count in cache.most_common(5):
+    print("%s : %d" %(key, count))
+
+
+set1 = collections.Counter("013579")
+set2 = collections.Counter("02468")
+print(set1 & set2)
+print(set1 - set2)
+print(set1 | set2)

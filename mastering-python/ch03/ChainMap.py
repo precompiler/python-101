@@ -51,6 +51,7 @@ def d():
     parser.add_argument("--flag")
     parser.add_argument("--list")
     args = vars(parser.parse_args())
+    print(args)
     filtered_args = {k: v for k, v in args.items() if v}
     combined = collections.ChainMap(filtered_args, defaults)
     print(combined["flag"])
@@ -58,12 +59,15 @@ def d():
 d()
 
 d1 = {"k":"v1"}
-d2 = {"k":"v2"}
+d2 = {"k":"v2", "k2": "Default"}
 dc1 = collections.ChainMap(d1, d2)
 dc2 = collections.ChainMap(d2, d1)
-#first win
+#first non-null value win if same key
 print(dc1["k"])
 print(dc2["k"])
+
+print(dc1["k2"])
+print(dc2["k2"])
 
 print(dc1.maps[0]["k"])
 print(dc1.maps[1]["k"])
