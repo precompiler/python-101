@@ -58,3 +58,16 @@ set2 = collections.Counter("02468")
 print(set1 & set2)
 print(set1 - set2)
 print(set1 | set2)
+
+#deque not thread safe
+q = collections.deque()
+q.append(1)
+q.append((1, 2, 3))
+print(q)
+print(q.popleft())
+print(q.popleft())
+#q.popleft() IndexError: pop from an empty deque
+import queue
+safe_q = queue.Queue() # synchronized
+safe_q.put("a")
+print(safe_q.get_nowait())
