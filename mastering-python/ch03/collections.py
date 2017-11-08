@@ -71,3 +71,37 @@ import queue
 safe_q = queue.Queue() # synchronized
 safe_q.put("a")
 print(safe_q.get_nowait())
+
+#defaultdict
+edges = [
+    ('a', 'b'),
+    ('a', 'c'),
+    ('b', 'a'),
+    ('b', 'd'),
+    ('c', 'a'),
+    ('d', 'a'),
+    ('d', 'b'),
+    ('d', 'c')
+]
+
+graph = collections.defaultdict(list)
+for start_node, end_node in edges:
+    graph[start_node].append(end_node)
+print(graph)
+
+graph2 = collections.defaultdict(list)
+print(graph2["x"])
+
+import json
+def tree():
+    return collections.defaultdict(tree)
+
+my_tree = tree()
+my_tree["root"]["n1"] = "1"
+my_tree["root"]["n2"] = "2"
+my_tree["root"]["n3"] = tree()
+my_tree["root"]["n3"]["n31"] = "3"
+my_tree["root"]["n3"]["n32"] = "4"
+
+
+print(json.dumps(my_tree, sort_keys=True, indent=4))
