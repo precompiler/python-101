@@ -116,3 +116,21 @@ print(p2)
 
 x, y, z = p1
 print("{}, {}, {}".format(x, y, z))
+
+#enumeration
+import enum
+class Color(enum.Enum):
+    RED = "Red"
+    GREEN = "Green"
+    BLUE = "Blue"
+
+def display(color):
+    print( {
+        Color.RED : Color.RED.value,
+        Color.GREEN : Color.GREEN.value,
+        Color.BLUE : Color.BLUE.value
+    }[color])
+
+display(Color.RED)
+display(Color.GREEN)
+# display("BLUE") no match
