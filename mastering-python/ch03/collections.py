@@ -105,3 +105,14 @@ my_tree["root"]["n3"]["n32"] = "4"
 
 
 print(json.dumps(my_tree, sort_keys=True, indent=4))
+
+#named tuple
+Point = collections.namedtuple("Point", ["x", "y", "z"])
+print(Point)
+p1 = Point(1, 2, 3)
+p2 = Point(x = 4, y = 5, z = 6)
+print(p1)
+print(p2)
+
+x, y, z = p1
+print("{}, {}, {}".format(x, y, z))
