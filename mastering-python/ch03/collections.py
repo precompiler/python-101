@@ -134,3 +134,20 @@ def display(color):
 display(Color.RED)
 display(Color.GREEN)
 # display("BLUE") no match
+
+#ordered dict
+od = collections.OrderedDict()
+od["k1"] = 1
+od["k2"] = 2
+od["k3"] = 3
+for k, v in od.items():
+    print("key = {}, value = {}".format(k, v))
+
+#heapq
+import heapq
+heap = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
+heapq.heapify(heap)
+
+while heap:
+    print("{}, {}".format(heapq.heappop(heap), heap))
+
