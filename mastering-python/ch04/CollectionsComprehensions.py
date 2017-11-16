@@ -24,3 +24,12 @@ for x in matrix:
     print(x)
 print("-----------")
 print ([y for x in matrix for y in x])
+
+#Dict
+
+d = {x: y for x in range(3) for y in range(2)}
+print(d)
+
+#Set
+s = { x + y for y in range(4) for x in range(3)}
+print(s)
