@@ -16,3 +16,10 @@ def powerset(iterable):
     )
 
 print(list(powerset(range(3))))
+
+compressed = itertools.compress(range(10), [1, 1, 0, 1])
+print(list(compressed))
+
+print(list(itertools.dropwhile(lambda e: e < 5, range(10))))
+
+print(list(itertools.takewhile(lambda x: x < 5, [3, 5, 6, 7, 8])))
