@@ -23,3 +23,29 @@ print(list(compressed))
 print(list(itertools.dropwhile(lambda e: e < 5, range(10))))
 
 print(list(itertools.takewhile(lambda x: x < 5, [3, 5, 6, 7, 8])))
+
+for a, b in zip(range(10), itertools.count()):
+    print(a, b)
+print("===============")
+for a, b in zip(range(10), itertools.count(10)):
+    print(a, b)
+print("===============")
+for a, b in zip(range(10), itertools.count(10, 0.1)):
+    print(a, b) #precision issue
+
+items = [("Dev", "Scott"), ("Dev", "Tiger"), ("Dev", "John"), ("Finance", "Jane")]
+for g, i in itertools.groupby(items, lambda item: item[0]):
+    print(g, list(i))
+
+items = [
+    {"dept": "Dev", "name": "Smith"},
+    {"dept": "Dev", "name": "Peter"},
+    {"dept": "HR", "name": "Sean"}
+]
+for g, i in itertools.groupby(items, lambda item: item["dept"]):
+    print(g, list(i))
+
+# must be sorted before using groupby
+items = [(1, 11), (2, 12), (1, 111)]
+for g, i in itertools.groupby(items, lambda item: item[0]):
+    print(g, list(i))
