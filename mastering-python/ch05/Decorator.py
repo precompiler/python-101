@@ -38,3 +38,20 @@ def fib(n):
 
 for i in range(1, 10):
     print("fib{}:{}".format(i, fib(i)))
+
+
+def trace(func):
+    @functools.wraps(func)
+    def _trace(self, *args):
+        print("Invoking {} - {}".format(self, args))
+        func(self, *args)
+    return _trace
+
+
+class FooBar:
+    @trace
+    def dummy(self, s):
+        print(s)
+
+fb = FooBar()
+fb.dummy("Hello")
