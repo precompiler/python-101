@@ -16,10 +16,12 @@ class Car:
         Car._brand = brand
 
     def getInfo(self):
+        print(self)
         print("year: {}, brand: {}".format(self._year, self._brand))
 
     @classmethod
     def getAge(cls):
+        print(cls)
         now = datetime.datetime.now()
         return int(now.year) - cls._year
 
