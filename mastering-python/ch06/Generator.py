@@ -29,3 +29,20 @@ def grep(seq, target_str):
 print("=" * 10)
 for r in grep(ls(), "wh"):
     print(r)
+
+print("=" * 10)
+import itertools
+# return a generator multiple times, default 2
+teed1, teed2 = itertools.tee(ls())
+print(next(teed1))
+print(next(teed1))
+print(next(teed1))
+print(next(teed1))
+print(next(teed1))
+print(next(teed2))
+print(next(teed2))
+print(next(teed2))
+print(next(teed2))
+print(next(teed2))
+
+
