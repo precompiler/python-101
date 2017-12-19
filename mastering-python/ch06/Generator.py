@@ -45,4 +45,14 @@ print(next(teed2))
 print(next(teed2))
 print(next(teed2))
 
+def dummy():
+    yield "a"
+    yield "b"
+    yield "c"
+    print("dummy ends------")
 
+d = dummy()
+print(next(d))
+print(next(d))
+print(next(d))
+print(next(d))
