@@ -55,4 +55,35 @@ d = dummy()
 print(next(d))
 print(next(d))
 print(next(d))
-print(next(d))
+#print(next(d))
+
+## receive values
+print("=" * 10)
+
+def InitBot(func):
+    def _init(*args, **kwargs):
+        g = func(*args, **kwargs)
+        print(next(g))
+        return g
+    return _init
+
+
+@InitBot
+def bot():
+    command = yield "Initialized..."
+    while True:
+        print("Command -> {}".format(command))
+        if command == "exit":
+            break
+        else:
+            command = yield "Listening..."
+
+
+try:
+    alexa = bot()
+    alexa.send("What time is it now")
+    alexa.send("Who are you")
+    alexa.send("Play music")
+    alexa.send("exit")
+except StopIteration:
+    print("Exit...")
